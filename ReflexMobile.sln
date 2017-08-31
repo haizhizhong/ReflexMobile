@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileMain", "MobileMain\MobileMain.csproj", "{76540980-498D-4BFD-8D98-F64B37AAEA58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileLEM", "MobileLEM\MobileLEM.csproj", "{0C866539-3965-46CF-95AC-00FFFB26076F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9B226CC1-E78D-4603-9D89-6526EC81E428} = {9B226CC1-E78D-4603-9D89-6526EC81E428}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileData", "MobileData\MobileData.csproj", "{9B226CC1-E78D-4603-9D89-6526EC81E428}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDataSync", "WebDataSync\WebDataSync.csproj", "{9BFAC1D9-D02A-4F5E-8EC7-7EFAB8625C4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76540980-498D-4BFD-8D98-F64B37AAEA58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76540980-498D-4BFD-8D98-F64B37AAEA58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76540980-498D-4BFD-8D98-F64B37AAEA58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76540980-498D-4BFD-8D98-F64B37AAEA58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C866539-3965-46CF-95AC-00FFFB26076F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C866539-3965-46CF-95AC-00FFFB26076F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C866539-3965-46CF-95AC-00FFFB26076F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C866539-3965-46CF-95AC-00FFFB26076F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B226CC1-E78D-4603-9D89-6526EC81E428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B226CC1-E78D-4603-9D89-6526EC81E428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B226CC1-E78D-4603-9D89-6526EC81E428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B226CC1-E78D-4603-9D89-6526EC81E428}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BFAC1D9-D02A-4F5E-8EC7-7EFAB8625C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BFAC1D9-D02A-4F5E-8EC7-7EFAB8625C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BFAC1D9-D02A-4F5E-8EC7-7EFAB8625C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BFAC1D9-D02A-4F5E-8EC7-7EFAB8625C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
