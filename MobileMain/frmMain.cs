@@ -2,7 +2,11 @@
 using System;
 using System.Linq;
 using System.Windows.Forms;
-using WS_Popups;
+using System.Collections.Generic;
+using HMConnection;
+using System.Configuration;
+using MobileLEM;
+using System.Runtime.InteropServices;
 
 namespace MobileMain
 {
@@ -12,9 +16,22 @@ namespace MobileMain
         {
             InitializeComponent();
 
-            Common.HMDevXManager = new TUC_HMDevXManager.TUC_HMDevXManager(defaultLookAndFeel1);
-            Common.MobileDB = $"Data Source =localhost\\SQLEXPRESS; Initial Catalog = ReflexMobile; Integrated Security = True;";
-            Common.Popups = new frmPopup(Common.HMDevXManager);
+            MobileCommon.ServerName = ConfigurationManager.AppSettings["ServerName"];
+            MobileCommon.DatabaseName = ConfigurationManager.AppSettings["DatabaseName"];
+            MobileCommon.MobileDB = $"Data Source ={MobileCommon.ServerName}; Initial Catalog = {MobileCommon.DatabaseName}; Integrated Security = True;";
+
+            GuiCommon.HMDevXManager = new TUC_HMDevXManager.TUC_HMDevXManager(defaultLookAndFeel1);
+            ReflexCommon.SqlCommon.ReportMessage += GuiCommon.ShowMessage;
+            DataManage.ReportMessage += GuiCommon.ShowMessage;
+
+            DataManage.CheckCreateDatabase();
+            if (!DataManage.HasDBAccess())
+            {
+                GuiCommon.ShowMessage("Please contact your system administrator to grant you database access.");
+                return;
+            }
+
+            DataManage.Purge();
         }
 
         private void frmForm_Load(object sender, EventArgs e)
@@ -23,7 +40,8 @@ namespace MobileMain
             gcLogin.Top = (this.Height / 2) - ((gcLogin.Height + 75) / 2);
 
             gcLogin.Visible = true;
-            teUsername.EditValue = System.Environment.UserName;
+            teUsername.EditValue = Environment.UserName;
+//            tePassword.EditValue = "Trustno1";         //todo
             tePassword.Focus();
         }
 
@@ -41,34 +59,59 @@ namespace MobileMain
             VerifiyUser();
         }
 
+        [DllImport("advapi32.dll", SetLastError = true)]
+        public static extern bool LogonUser(string pszUsername, string pszDomain, string pszPassword, int dwLogonType, int dwLogonProvider, ref IntPtr phToken);
+
         private void VerifiyUser()
         {
-            if (teUsername.EditValue == null)
+            if (CompanySyncProcess.GetSyncProcessEnum(CompanySyncProcess.NoCompany, EnumSyncType.System) != EnumSyncProcess.NotSyncing)
             {
-                Common.Popups.ShowPopup(this, "Please enter a user name.");
+                GuiCommon.ShowMessage("First time use or sync broken, need to Sync Users.");
+                btnSync.Focus();
                 return;
             }
-            //if (tePassword.EditValue == null)
-            //{
-            //    Common.Popups.ShowPopup(this, "Please enter a password.");
-            //    return;
-            //}
 
-            int? id = LoginUser.ValidUser(teUsername.EditValue.ToString(), tePassword.EditValue?.ToString() ?? "");
+            if (teUsername.EditValue == null)
+            {
+                GuiCommon.ShowMessage("Please enter a user name.");
+                return;
+            }
+
+            if (tePassword.EditValue == null)
+            {
+                GuiCommon.ShowMessage("Please enter a password.");
+                return;
+            }
+
+            IntPtr userHandle = IntPtr.Zero;
+            bool winValid = LogonUser(teUsername.EditValue.ToString(),
+                                            System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().DomainName,
+                                            tePassword.EditValue.ToString(),
+                                            2, 0, ref userHandle);
+            if (!winValid)
+            {
+                GuiCommon.ShowMessage("Failed in windows authentication. Incorrect Username/Password.");
+                return;
+            }
+
+            int? id = LoginUser.ValidUser(teUsername.EditValue.ToString());
             if (id == null)
             {
-                Common.Popups.ShowPopup(this, "Incorrect Username / Password.");
+                GuiCommon.ShowMessage("Cannot find this user.");
                 return;
             }
             else
             {
                 LoginUser.CurrUser = LoginUser.GetUser(id.Value);
+                DataManage.UpdateCodeVersion();
+                if (LoginUser.MaxCodeVersion() != LoginUser.CurrUser.CodeVersion)
+                {
+                    GuiCommon.ShowMessage("Code verion is not correct, please log out and restart.");
+                    return;
+                }
 
-                Common.HMDevXManager.AppInit(LoginUser.CurrUser.UserName);
-                Common.HMDevXManager.FormInit(this);
-
-                luCompany.Properties.DataSource = Company.List.Where( x=> LoginUser.CurrUser.CompanyList.Contains(x.MatchId)).Select( x=> new { CompanyID = x.MatchId, CompanyName = x.CompanyName });
-                if (LoginUser.CurrUser.CompanyList.Count == 1)
+                luCompany.Properties.DataSource = Company.List.Where( x=> LoginUser.CurrUser.AccessList.Select(a => a.CompanyId).Contains(x.MatchId)).Select( x=> new { CompanyID = x.MatchId, CompanyName = x.CompanyName });
+                if (LoginUser.CurrUser.AccessList.Count == 1)
                 {
                     luCompany.ItemIndex = 0;//autoload the only company
                 }
@@ -80,10 +123,12 @@ namespace MobileMain
             Company.CurrentId = (int)luCompany.EditValue;
             myBar.ClearLinks();
 
-            DevExpress.XtraBars.BarLargeButtonItem TerminalItem = new DevExpress.XtraBars.BarLargeButtonItem(barManager1, "Reflex Mobile");
-            TerminalItem.Tag = 999;
-            TerminalItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(TerminalItem_ItemClick);
-            myBar.AddItem(TerminalItem);
+            this.Text = $"Reflex {LoginUser.CurrUser.LoginName} has logged into {Company.GetCurrCompany().CompanyName}";
+
+            DevExpress.XtraBars.BarLargeButtonItem mainItem = new DevExpress.XtraBars.BarLargeButtonItem(barManager1, $"Reflex Field Services");
+            mainItem.Tag = 999;
+            mainItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(TerminalItem_ItemClick);
+            myBar.AddItem(mainItem);
 
             DevExpress.XtraBars.BarMdiChildrenListItem Windows = new DevExpress.XtraBars.BarMdiChildrenListItem();
             Windows.Caption = "&Windows";
@@ -92,6 +137,12 @@ namespace MobileMain
             DevExpress.XtraBars.BarLargeButtonItem About = new DevExpress.XtraBars.BarLargeButtonItem(barManager1, "About");
             About.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(About_ItemClick);
             myBar.AddItem(About);
+
+            var providerList = new List<IInitProvider> { new MobileCompanyInitProvider(), new MobileUserInitProvider() };
+            MobileCommon.HMCon = new HMCon(MobileCommon.DatabaseName, MobileCommon.ServerName, Company.CurrentId, LoginUser.CurrUser.MatchId, providerList);
+
+            GuiCommon.HMDevXManager.AppInit(LoginUser.CurrUser.GetUserName());
+            GuiCommon.HMDevXManager.FormInit(this);
         }
 
         private void TerminalItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -100,18 +151,22 @@ namespace MobileMain
             newMDIChild.MdiParent = this;
             newMDIChild.Tag = 888;
             newMDIChild.Show();
-            newMDIChild.Text = e.Item.Caption + " (" + Company.GetCompany(Company.CurrentId).CompanyName + ")";
+            newMDIChild.Text = e.Item.Caption + " (" + Company.GetCurrCompany().CompanyName + ")";
 
             ucMain uc = new ucMain();
-            uc.Init();
             uc.Size = newMDIChild.Size;
             uc.Dock = DockStyle.Fill;
+            string keep = this.Text;
             uc.Parent = newMDIChild;
             tabbedView1.AddDocument(newMDIChild);
+
+            this.Text = keep;
         }
 
         private void About_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            SplashScreen2 ss = new SplashScreen2();
+            ss.ShowDialog();
         }
 
         private void tabbedView1_DocumentAdded(object sender, DevExpress.XtraBars.Docking2010.Views.DocumentEventArgs e)
@@ -157,6 +212,33 @@ namespace MobileMain
         {
             if (e.KeyCode == Keys.Enter)
                 VerifiyUser();
+        }
+
+        private async void btnSync_ClickAsync(object sender, EventArgs e)
+        {
+            CL_Dialog.PleaseWait.Show("Data syncing...\r\nPlease Wait", ParentForm);
+
+            SyncResult result = await DataSync.HandShakeAsync();
+            if (result.Successful)
+            {
+                var resultSync = await DataSync.RunSyncSystem(DataSync.GetSyncSystemList());
+                if (resultSync.Successful)
+                {
+                    string msg  = LoginUser.AddSqlUsers();
+                    if (msg != null)
+                    {
+                        GuiCommon.ShowMessage(msg);
+                    }
+                }
+
+                GuiCommon.ShowMessage(resultSync.DisplayMessage());
+            }
+            else
+            {
+                GuiCommon.ShowMessage(result.DisplayMessage());
+            }
+
+            CL_Dialog.PleaseWait.Hide();
         }
     }
 }

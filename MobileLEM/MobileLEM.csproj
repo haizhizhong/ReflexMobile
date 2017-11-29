@@ -30,7 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Accessibility" />
     <Reference Include="CL_Dialog, Version=1.0.6438.29963, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Y:\Reflex11\DotNet\DotNetCompileDirectory(no running)\Backup2\CL_Dialog.dll</HintPath>
@@ -45,79 +44,187 @@
     <Reference Include="DevExpress.XtraNavBar.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraRichEdit.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="HMConnection, Version=1.0.6381.24097, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DevExpress.XtraWizard.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DM_CentralizedFSManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Y:\Reflex11\DotNet\DotNetCompileDirectory(no running)\HMConnection.dll</HintPath>
+      <HintPath>..\..\..\DotNetCompileDirectory(no running)\DM_CentralizedFSManager.dll</HintPath>
+    </Reference>
+    <Reference Include="HMBaseReporting, Version=1.0.6344.20607, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\Dotnetsrc\devgrp\Reflex11\Initiatives\9616\Haizhi\Code\Checkedout\Dotnet\DotNetCompileDirectory(no running)\HMBaseReporting.dll</HintPath>
+    </Reference>
+    <Reference Include="HMConnection, Version=1.0.6506.26776, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DotNetCompileDirectory(no running)\HMConnection.dll</HintPath>
+    </Reference>
+    <Reference Include="HMProcessAssistantLib, Version=1.0.6485.20046, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\DotNet\DotNetCompileDirectory(no running)\HMProcessAssistantLib.dll</HintPath>
+    </Reference>
+    <Reference Include="HMReportPrinter, Version=1.0.6494.25644, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DotNetCompileDirectory(no running)\HMReportPrinter.dll</HintPath>
     </Reference>
     <Reference Include="HMTools, Version=1.0.6424.13760, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Y:\Reflex11\DotNet\DotNetCompileDirectory(no running)\HMTools.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="ReflexCommon, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\Dotnetsrc\devgrp\Reflex11\DotNet\DotNetCompileDirectory(no running)\ReflexCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="ReflexEditors, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="ReflexGridControl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="ReflexImgSrc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Linq" />
-    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Drawing.Design" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="TUC_HMDevXManager, Version=1.0.6450.26468, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\DotNetCompileDirectory(no running)\TUC_HMDevXManager.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="WindowsFormsIntegration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="WS_Popups, Version=1.0.6396.22073, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Y:\Reflex11\DotNet\DotNetCompileDirectory(no running)\WS_Popups.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GuiCommon.cs" />
+    <Compile Include="Maintenance\ucSyncConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Maintenance\ucSyncConfig.Designer.cs">
+      <DependentUpon>ucSyncConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Processing\EditLem\ucLemAP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Processing\EditLem\ucLemAP.Designer.cs">
+      <DependentUpon>ucLemAP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ucPageLogHeader.cs">
+    <Compile Include="Processing\ucLemHeader.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucPageLogHeader.Designer.cs">
-      <DependentUpon>ucPageLogHeader.cs</DependentUpon>
+    <Compile Include="Processing\ucLemHeader.Designer.cs">
+      <DependentUpon>ucLemHeader.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucPageEditLem.cs">
+    <Compile Include="Processing\ucEditLem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucPageEditLem.Designer.cs">
-      <DependentUpon>ucPageEditLem.cs</DependentUpon>
+    <Compile Include="Processing\ucEditLem.Designer.cs">
+      <DependentUpon>ucEditLem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucTabEquipment.cs">
+    <Compile Include="Processing\EditLem\ucCostCodeSummary.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucTabEquipment.Designer.cs">
-      <DependentUpon>ucTabEquipment.cs</DependentUpon>
+    <Compile Include="Processing\EditLem\ucCostCodeSummary.Designer.cs">
+      <DependentUpon>ucCostCodeSummary.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucTabLabour.cs">
+    <Compile Include="Processing\EditLem\ucEquipmentEntry.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucTabLabour.Designer.cs">
-      <DependentUpon>ucTabLabour.cs</DependentUpon>
+    <Compile Include="Processing\EditLem\ucEquipmentEntry.Designer.cs">
+      <DependentUpon>ucEquipmentEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Processing\ucFieldPO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Processing\ucFieldPO.Designer.cs">
+      <DependentUpon>ucFieldPO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Processing\EditLem\ucLabourEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Processing\EditLem\ucLabourEntry.Designer.cs">
+      <DependentUpon>ucLabourEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Processing\EditLem\ucEmployeeSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Processing\EditLem\ucEmployeeSummary.Designer.cs">
+      <DependentUpon>ucEmployeeSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ucLemSheetQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\ucLemSheetQuery.Designer.cs">
+      <DependentUpon>ucLemSheetQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ucSyncManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\ucSyncManage.Designer.cs">
+      <DependentUpon>ucSyncManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ucToolEmpSum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\ucToolEmpSum.Designer.cs">
+      <DependentUpon>ucToolEmpSum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ucToolCostCodeSum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\ucToolCostCodeSum.Designer.cs">
+      <DependentUpon>ucToolCostCodeSum.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Maintenance\ucSyncConfig.resx">
+      <DependentUpon>ucSyncConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Processing\EditLem\ucLemAP.resx">
+      <DependentUpon>ucLemAP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="ucPageLogHeader.resx">
-      <DependentUpon>ucPageLogHeader.cs</DependentUpon>
+    <EmbeddedResource Include="Processing\ucLemHeader.resx">
+      <DependentUpon>ucLemHeader.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucPageEditLem.resx">
-      <DependentUpon>ucPageEditLem.cs</DependentUpon>
+    <EmbeddedResource Include="Processing\ucEditLem.resx">
+      <DependentUpon>ucEditLem.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucTabEquipment.resx">
-      <DependentUpon>ucTabEquipment.cs</DependentUpon>
+    <EmbeddedResource Include="Processing\EditLem\ucCostCodeSummary.resx">
+      <DependentUpon>ucCostCodeSummary.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucTabLabour.resx">
-      <DependentUpon>ucTabLabour.cs</DependentUpon>
+    <EmbeddedResource Include="Processing\EditLem\ucEquipmentEntry.resx">
+      <DependentUpon>ucEquipmentEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Processing\ucFieldPO.resx">
+      <DependentUpon>ucFieldPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Processing\EditLem\ucLabourEntry.resx">
+      <DependentUpon>ucLabourEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Processing\EditLem\ucEmployeeSummary.resx">
+      <DependentUpon>ucEmployeeSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\ucLemSheetQuery.resx">
+      <DependentUpon>ucLemSheetQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\ucSyncManage.resx">
+      <DependentUpon>ucSyncManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\ucToolCostCodeSum.resx">
+      <DependentUpon>ucToolCostCodeSum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\ucToolEmpSum.resx">
+      <DependentUpon>ucToolEmpSum.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -126,5 +233,6 @@
       <Name>MobileData</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

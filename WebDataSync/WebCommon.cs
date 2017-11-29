@@ -1,4 +1,6 @@
 ﻿using MobileData;
+using ReflexCommon;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -26,8 +28,7 @@ namespace WebDataSync
                 if (_trList == null)
                 {
                     string sql = @"select AutoID, Company_Name, CompanyServerName, TreasuryDBName from COMPANIES";
-                    Common.MobileDB = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
-                    DataTable table = Common.ExecuteDataAdapter(sql);
+                    DataTable table = SqlCommon.ExecuteDataAdapter(sql, WebConnection);
 
                     _trList = new Dictionary<int, string>();
                     table.Select().ToList().ForEach(r =>
@@ -39,6 +40,14 @@ namespace WebDataSync
             }
 
             return _trList[companyId];
+        }
+
+        public static DateTime? GetSyncTime(int companyId, string clientMac)
+        {
+            string sql = $"select LastSyncTime from MobileSync where CompanyId={companyId} and ClientMac='{clientMac}'";
+
+            var date = SqlCommon.ExecuteScalar(sql, WebConnection);
+            return date==null ? (DateTime?)null : Convert.ToDateTime(date);
         }
     }
 }

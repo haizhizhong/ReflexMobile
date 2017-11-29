@@ -1,0 +1,26 @@
+Sql Error: select AutoID from COMPANIES1111
+2017-11-06 2:48:43 PM:  Procedure or function WS_SyncInit has too many arguments specified.
+2017-11-13 11:13:23 AM:  Sql Error: select * from SystemInfo where UserName='Haizhi'
+2017-11-13 11:13:23 AM:  Sql Error: select * from SystemInfo where UserName='Haizhi'
+2017-11-13 11:13:23 AM:  Sql Error: select * from SystemInfo where UserName='Haizhi'
+2017-11-13 11:13:24 AM:  Sql Error: select * from SystemInfo where UserName='Haizhi'
+2017-11-15 2:36:19 PM:  Cannot insert the value NULL into column 'ID', table 'TR_TAHK.dbo.SYSTEM_IDS'; column does not allow nulls. UPDATE fails.
+Cannot insert the value NULL into column 'ID', table 'TR_TAHK.dbo.SYSTEM_IDS'; column does not allow nulls. UPDATE fails.
+The statement has been terminated.
+[tr_SendPOAlert]
+[tr_SendPOAlert]
+Warning: Null value is eliminated by an aggregate or other SET operation.
+The statement has been terminated.
+[tr_SendPOAlert]
+[tr_SendPOAlert]
+Warning: Null value is eliminated by an aggregate or other SET operation.
+2017-11-15 2:48:28 PM:  Cannot insert the value NULL into column 'ID', table 'TR_TAHK.dbo.SYSTEM_IDS'; column does not allow nulls. UPDATE fails.
+Cannot insert the value NULL into column 'ID', table 'TR_TAHK.dbo.SYSTEM_IDS'; column does not allow nulls. UPDATE fails.
+The statement has been terminated.
+[tr_SendPOAlert]
+[tr_SendPOAlert]
+Warning: Null value is eliminated by an aggregate or other SET operation.
+The statement has been terminated.
+[tr_SendPOAlert]
+[tr_SendPOAlert]
+Warning: Null value is eliminated by an aggregate or other SET operation.

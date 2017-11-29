@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::MobileMain.SplashScreen1), true, true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.gcLogin = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
@@ -36,6 +37,7 @@
             this.luCompany = new DevExpress.XtraEditors.LookUpEdit();
             this.teUsername = new DevExpress.XtraEditors.TextEdit();
             this.tePassword = new DevExpress.XtraEditors.TextEdit();
+            this.btnSync = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -46,6 +48,7 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem12 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.myBar = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -77,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.pnlLogin.SuspendLayout();
@@ -86,6 +90,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // splashScreenManager1
+            // 
+            splashScreenManager1.ClosingDelay = 500;
             // 
             // gcLogin
             // 
@@ -103,6 +111,7 @@
             this.layoutControl1.Controls.Add(this.luCompany);
             this.layoutControl1.Controls.Add(this.teUsername);
             this.layoutControl1.Controls.Add(this.tePassword);
+            this.layoutControl1.Controls.Add(this.btnSync);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(2, 20);
             this.layoutControl1.Name = "layoutControl1";
@@ -157,6 +166,16 @@
             this.tePassword.TabIndex = 5;
             this.tePassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tePassword_KeyDown);
             // 
+            // btnSync
+            // 
+            this.btnSync.Location = new System.Drawing.Point(56, 184);
+            this.btnSync.Name = "btnSync";
+            this.btnSync.Size = new System.Drawing.Size(290, 22);
+            this.btnSync.StyleController = this.layoutControl1;
+            this.btnSync.TabIndex = 6;
+            this.btnSync.Text = "Sync Users";
+            this.btnSync.Click += new System.EventHandler(this.btnSync_ClickAsync);
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
@@ -169,7 +188,8 @@
             this.layoutControlItem2,
             this.layoutControlItem3,
             this.emptySpaceItem12,
-            this.layoutControlItem5});
+            this.layoutControlItem5,
+            this.layoutControlItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(412, 218);
@@ -259,7 +279,7 @@
             this.emptySpaceItem12.CustomizationFormText = "emptySpaceItem12";
             this.emptySpaceItem12.Location = new System.Drawing.Point(44, 143);
             this.emptySpaceItem12.Name = "emptySpaceItem12";
-            this.emptySpaceItem12.Size = new System.Drawing.Size(294, 55);
+            this.emptySpaceItem12.Size = new System.Drawing.Size(294, 29);
             this.emptySpaceItem12.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
@@ -270,6 +290,15 @@
             this.layoutControlItem5.Size = new System.Drawing.Size(294, 24);
             this.layoutControlItem5.Text = "Password";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(48, 13);
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.btnSync;
+            this.layoutControlItem1.Location = new System.Drawing.Point(44, 172);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(294, 26);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
             // 
             // barManager1
             // 
@@ -411,7 +440,7 @@
             this.IsMdiContainer = true;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Reflex Mobile";
+            this.Text = "Reflex";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmForm_Load);
             this.Resize += new System.EventHandler(this.frmMain_Resize);
@@ -432,6 +461,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.pnlLogin.ResumeLayout(false);
@@ -476,6 +506,8 @@
         private DevExpress.XtraBars.Docking.DockPanel pnlLogin;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
+        private DevExpress.XtraEditors.SimpleButton btnSync;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
     }
 }
 
