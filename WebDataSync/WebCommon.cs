@@ -49,5 +49,7 @@ namespace WebDataSync
             var date = SqlCommon.ExecuteScalar(sql, WebConnection);
             return date==null ? (DateTime?)null : Convert.ToDateTime(date);
         }
+
+        //haizhi quick fix bad
     }
 }
