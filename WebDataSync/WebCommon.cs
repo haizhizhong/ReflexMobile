@@ -7,6 +7,9 @@ using System.Linq;
 
 namespace WebDataSync
 {
+    //haizhi is working line 1
+    //haizhi is working line 1
+
     public class WebCommon
     {
         static Dictionary<int, string> _trList = null;
@@ -48,6 +51,21 @@ namespace WebDataSync
 
             var date = SqlCommon.ExecuteScalar(sql, WebConnection);
             return date==null ? (DateTime?)null : Convert.ToDateTime(date);
+
+
+            //haizhi is working line 1
+            //haizhi is working line 1
+            //haizhi is working line 1
+            //haizhi is working line 1
+            //haizhi is working line 5
+
+
+            //haizhi is working line 5
+            //haizhi is working line 5
+            //haizhi is working line 5
+            //haizhi is working line 5
+            //haizhi is working line 5
+            //haizhi is working line 5
         }
 
         //haizhi quick fix good right fix

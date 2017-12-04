@@ -42,6 +42,9 @@ namespace WebDataSync.Security
             }).SingleOrDefault();
         }
 
+        //haizhi is working line 1
+        //haizhi is working line 1
+
         public static void KillByGuid(Guid guid)
         {
             string sql = $"delete MobileWebToken where AuthToken='{guid}'";
