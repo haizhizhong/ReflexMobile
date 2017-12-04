@@ -50,6 +50,6 @@ namespace WebDataSync
             return date==null ? (DateTime?)null : Convert.ToDateTime(date);
         }
 
-        //haizhi quick fix crussh!!
+        //haizhi quick fix good
     }
 }
